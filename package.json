@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch index.ts",
     "fix": "prettier . --write"
   },
   "dependencies": {
