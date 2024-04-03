@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { validator } from 'hono/validator'
-import randomString from '../utils/randomString'
 import db from '../database'
+import smasher from '../app/smasher'
 
 const api = new Hono()
 
@@ -35,14 +35,9 @@ api
     async (c) => {
       const data = await c.req.json<{ url: string }>()
 
-      const key = randomString()
-      const appUrl = c.req.url.replace(c.req.path, '')
-      const smashed_url = `${appUrl}/${key}`
+      const baseUrl = c.req.url.replace(c.req.path, '')
 
-      const stmt = db.prepare(
-        'INSERT INTO links (key, url, shorter_url) VALUES (?, ?, ?)'
-      )
-      stmt.run(key, data.url, smashed_url)
+      const { key, smashed_url } = smasher.smash(data.url, { baseUrl })
 
       return c.json({
         message: 'Url smashed',
