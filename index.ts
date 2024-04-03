@@ -13,6 +13,17 @@ app.get('/', (c) => {
 app.route('/web', web)
 app.route('/api', api)
 
+app.get('/:key', (c) => {
+  const stmt = db.prepare('SELECT * FROM links WHERE key = ?')
+  const link = stmt.get(c.req.param('key')) as QueryResult<Link>
+
+  if (!link) {
+    return c.text('Not found', 404)
+  }
+
+  return c.redirect(link.url)
+})
+
 const port = 3000
 console.log(`Server is running on port ${port}`)
 
