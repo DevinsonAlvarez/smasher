@@ -9,8 +9,6 @@ const migration = fs.readFileSync(
   { encoding: 'utf8' }
 )
 
-console.log(migration)
-
 db.exec(migration)
 
 export default db
