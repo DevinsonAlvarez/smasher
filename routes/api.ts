@@ -9,6 +9,12 @@ api
   .get('/', (c) => {
     return c.json({ message: 'Hello SMASHER 💥' })
   })
+  .get('/links', (c) => {
+    const stmt = db.prepare('SELECT * FROM links')
+    const links = stmt.all()
+
+    return c.json(links)
+  })
   .get('/:key', (c) => {
     const stmt = db.prepare('SELECT * FROM links WHERE key = ?')
     const link = stmt.get(c.req.param('key')) as QueryResult<Link>
