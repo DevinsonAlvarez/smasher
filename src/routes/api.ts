@@ -20,7 +20,7 @@ api
     const link = stmt.get(c.req.param('key')) as QueryResult<Link>
 
     if (!link) {
-      return c.json({ message: 'Url not found' }, 404)
+      return c.json({ message: 'Not found' }, 404)
     }
 
     return c.json(link)

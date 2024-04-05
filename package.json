@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "tsx watch index.ts",
-    "fix": "prettier . --write"
+    "dev": "tsx watch ./src/index.ts",
+    "fix": "prettier ./src --write"
   },
   "dependencies": {
     "@hono/node-server": "^1.9.0",
