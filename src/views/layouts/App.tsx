@@ -1,4 +1,5 @@
 import type { FC } from 'hono/jsx'
+import LinkList from '../components/LinkList'
 
 interface Props {
   title?: string
@@ -30,7 +31,14 @@ const App: FC<Props> = ({ title, children }) => {
             </nav>
           </div>
         </header>
-        <main className="container">{children}</main>
+        <main className="container">
+          <div style={{ width: '100%' }}>{children}</div>
+          {process.env?.NODE_ENV !== 'production' && (
+            <div style={{ height: 400, overflow: 'auto' }}>
+              <LinkList />
+            </div>
+          )}
+        </main>
       </body>
     </html>
   )
