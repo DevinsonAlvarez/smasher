@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import Database from 'better-sqlite3'
-import queryLogger from '@/app/queryLogger'
+import queryLogger from '../app/queryLogger'
 
 const db = new Database('./storage/database.db', { verbose: queryLogger })
 

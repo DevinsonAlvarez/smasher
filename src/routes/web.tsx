@@ -1,8 +1,7 @@
 import { Hono } from 'hono'
 import Home from '../views/pages/Home'
 import { validator } from 'hono/validator'
-import { error } from 'console'
-import smasher from '@/app/smasher'
+import smasher from '../app/smasher'
 
 const web = new Hono()
 

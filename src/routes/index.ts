@@ -1,7 +1,7 @@
 import { type Hono } from 'hono'
 import web from './web'
 import api from './api'
-import db from '@/database'
+import db from '../database'
 
 function registerRoutes(app: Hono) {
   app.route('/web', web)

@@ -1,7 +1,9 @@
 {
   "scripts": {
     "dev": "tsx watch ./src/index.ts",
-    "fix": "prettier ./src --write"
+    "fix": "prettier ./src --write",
+    "build": "rm -rf ./build && tsc",
+    "start": "NODE_ENV=production node ./build/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.9.0",

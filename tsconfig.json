@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "types": [
       "node"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@/storage/*": [
-        "./storage/*"
-      ]
-    }
-  }
+    "esModuleInterop": true,
+    "rootDir": "./src",
+    "outDir": "./build"
+  },
+  "include": [
+    "src/**/*",
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
 }
