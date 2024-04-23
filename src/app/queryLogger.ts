@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import dayjs from 'dayjs';
+import fs from 'node:fs'
+import dayjs from 'dayjs'
 
 if (!fs.existsSync('./storage/logs/queries.log')) {
   fs.mkdirSync('./storage/logs')
