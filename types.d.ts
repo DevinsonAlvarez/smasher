@@ -1,7 +1,7 @@
 interface Link {
   key: string
   url: string
-  shortener_url: string
+  shorter_url: string
 }
 
 type QueryResult<T extends {}> = T & {
